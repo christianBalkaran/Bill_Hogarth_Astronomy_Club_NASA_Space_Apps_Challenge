@@ -4034,7 +4034,7 @@
     [
       "!if 1 == $power_online",
       [
-        "!random_hop nuclear_failure nuclear_ok_1 nuclear_ok_2 nuclear_ok_3 nuclear_ok_4 nuclear_ok_5 nuclear_ok_6 nuclear_ok_7 nuclear_ok_8 nuclear_ok_9"
+        "!random_hop nuclear_failure nuclear_ok nuclear_ok_2 nuclear_ok_3 nuclear_ok_4 nuclear_ok_5 nuclear_ok_6 nuclear_ok_7 nuclear_ok_8 nuclear_ok_9 nuclear_ok_1 nuclear_ok_2 nuclear_ok_3 nuclear_ok_4 nuclear_ok_5 nuclear_ok_6 nuclear_ok_7 nuclear_ok_8 nuclear_ok_9"
       ],
       [
         "!jump water_random"
@@ -4045,7 +4045,7 @@
       [
         "!if 0 == $solar_dust",
         [
-          "!random_hop solar_dust_event solar_clear_1 solar_clear_2"
+          "!random_hop solar_dust_event solar_clear_1 solar_clear_2 solar_clear_1 solar_clear_2"
         ],
         [
           "!jump water_random"
@@ -4059,6 +4059,9 @@
   "nuclear_failure": [
     "POWER EMERGENCY // The remote nuclear reactor has failed. It must be repaired at the remote site.",
     "!store power_online 0",
+    "!jump water_random"
+  ],
+  "nuclear_ok": [
     "!jump water_random"
   ],
   "nuclear_ok_1": [
@@ -4325,13 +4328,15 @@
   "mission_failure": [
     "MISSION FAILURE // The mission can no longer meet its survival or operational requirements.",
     "If the MAV remains available, the crew's emergency ascent is initiated where possible.",
-    "Scientific score at termination: $science",
+    "Scientific score at termination:",
+    "$science",
     "!end"
   ],
   "abort": [
     "MISSION ABORT // The crew abandons surface operations and prepares to ascend aboard the MAV.",
     "The MAV carries independent power and oxygen.",
-    "Scientific score at abort: $science",
+    "Scientific score at abort:",
+    "$science",
     "!end"
   ]
 }
